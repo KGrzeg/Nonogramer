@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nonogramer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" Loaded="window_loaded" SizeChanged="windows_sizeChanged">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="7*"/>
@@ -13,13 +13,11 @@
 		</Grid.ColumnDefinitions>
 
 		<StackPanel Grid.Column="1">
-			<Label Content="Poziom"/>
-			<TextBox Name="tbLevel">100</TextBox>
+			<Label Content="Rozmiar Planszy"/>
+			<TextBox Name="tbSize">10</TextBox>
 		</StackPanel>
 
-		<Canvas Name="mainCanv" Background="PaleGoldenrod">
-			<Rectangle Width="100" Height="100" Fill="Black" Margin="10, 20" />
-		</Canvas>
+		<Canvas Name="mainCanv" Background="PaleGoldenrod" Margin="15"/>
 
 	</Grid>
 
