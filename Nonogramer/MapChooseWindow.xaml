@@ -1,0 +1,25 @@
+﻿<Window x:Class="Nonogramer.MapChooseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nonogramer"
+        mc:Ignorable="d"
+        Title="Wybór mapy" Height="300" Width="300" Loaded="Window_Loaded">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="40"/>
+		</Grid.RowDefinitions>
+
+		<ListBox Name="lbMaps" Grid.Row="0"/>
+
+		<StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5" Height="24" HorizontalAlignment="Right">
+			<Button Name="btnClose" Content="Zamknij" Click="btnClose_Click"/>
+			<Button Name="btnLoadFromFile" Content="Wczytaj z pliku" Click="btnLoadFromFile_Click" IsEnabled="False"/>
+			<Button Name="btnLoad" Content="Wczytaj" Click="btnLoad_Click"/>
+		</StackPanel>
+
+	</Grid>
+
+</Window>

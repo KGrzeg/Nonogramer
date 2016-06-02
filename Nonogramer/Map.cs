@@ -10,46 +10,28 @@ namespace Nonogramer {
 
 	public class Map {
 
-		public Field[,] Fields { get; set; }
-		public MapData Data { get; set; }
+		public Field[,] Fields { get; private set; }
+		public MapData Data { get; private set; }
 
-		public int SizeX { get; set; }
-		public int SizeY { get; set; }
+		public int SizeX { get; private set; }
+		public int SizeY { get; private set; }
 		public Map() {
-			this.SetSize( 10 );
-
-			Trought();
 		}
 
-		public void Load() {
-			int w = 10;
-			int h = 10;
-			int[][] rows = {
-				new int[] { 3 },
-				new int[] { 7 },
-				new int[] { 2, 1, 2 },
-				new int[] { 1, 1, 1, 1, 1 },
-				new int[] { 9 },
-				new int[] { 3, 1, 3 },
-				new int[] { 1, 3, 1 },
-				new int[] { 1, 1 },
-				new int[] { 1, 5 },
-				new int[] { 2 }
-			};
-			int[][] cols = {
-				new int[] { 2 },
-				new int[] { 4, 1 },
-				new int[] { 2, 4 },
-				new int[] { 1, 3, 1 },
-				new int[] { 2, 1, 1, 1 },
-				new int[] { 7, 1  },
-				new int[] { 2, 1, 1, 1 },
-				new int[] { 1, 3, 1 },
-				new int[] { 2, 4 },
-				new int[] { 4 }
-			};
+		public void Load(MapData mapData) {
+			Data = mapData;
+			SizeX = Data.Width;
+			SizeY = Data.Height;
+			Fields = new Field[SizeX, SizeY];
+			Clear();
 
-			Data = new MapData( w, h, rows, cols );
+			return;
+		}
+		public void SetField( int cellX, int cellY, Field field ) {
+			if( Fields[cellX, cellY] != field )
+				Fields[cellX, cellY] = field;
+			else
+				Fields[cellX, cellY] = Field.Empty;
 		}
 
 		public bool CheckAll() {
@@ -70,11 +52,6 @@ namespace Nonogramer {
 			return true;
 		}
 
-		public void SetSize( int size ) {
-			Fields = new Field[size, size];
-			SizeX = this.SizeY = size;
-			Clear();
-		}
 		public void Clear() {
 			for( int x = 0; x < Fields.GetLength( 0 ); ++x ) {
 				for( int y = 0; y < Fields.GetLength( 1 ); ++y ) {
@@ -129,29 +106,6 @@ namespace Nonogramer {
 			if( currentSeries == rule.Length )
 				return true;
 			return false;
-		}
-		//DEBUG
-		public void Trought() {
-
-			int maxX = Fields.GetLength(0);
-			int maxY = Fields.GetLength(1);
-			int midX = maxX / 2;
-			int midY = maxY / 2;
-			Field toMid = Field.Filled;
-			Field afterMid = Field.Marked;
-
-			for( int x = 0; x < midX; ++x ) {
-				for( int y = 0; y < midY; ++y ) {
-					if( x == y )
-						Fields[x, y] = toMid;
-				}
-			}
-			for( int x = midX; x < maxX; ++x ) {
-				for( int y = midY; y < maxY; ++y ) {
-					if( x == y )
-						Fields[x, y] = afterMid;
-				}
-			}
 		}
 
 	}

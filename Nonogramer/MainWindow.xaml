@@ -5,19 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nonogramer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Loaded="window_loaded" SizeChanged="windows_sizeChanged">
+        Title="Nonogramer #" Height="700" Width="1030" Loaded="window_loaded"
+				SizeChanged="windows_sizeChanged" MinHeight="350" MinWidth="485">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="7*"/>
 			<ColumnDefinition Width="3*"/>
 		</Grid.ColumnDefinitions>
 
-		<StackPanel Grid.Column="1">
-			<Label Content="Rozmiar Planszy"/>
-			<TextBox Name="tbSize">10</TextBox>
+		<StackPanel Grid.Column="1" Margin="5">
+
+			<!-- Info o planszy -->
+			<StackPanel Background="#4CCEE251">
+				<DockPanel>
+					<Label>Nazwa mapy:</Label>
+					<Label HorizontalContentAlignment="Right" Content="{Binding Path=Game.Map.Data.Name}"/>
+				</DockPanel>
+				<DockPanel>
+					<Label>Autor mapy:</Label>
+					<Label HorizontalContentAlignment="Right" Content="{Binding Path=Game.Map.Data.Author}"/>
+				</DockPanel>
+				<DockPanel>
+					<Label>Wymiary mapy:</Label>
+					<Label HorizontalContentAlignment="Right" Content="{Binding Path=Game.Map.Data.strSize}"/>
+				</DockPanel>
+			</StackPanel>
+			
+			<!-- Interfejs -->
+			<StackPanel Margin="15,5">
+				<Button Content="Czyść" Click="Button_Click"/>
+				<Button Content="Zmień mapę" Click="Button_Click_1"/>
+			</StackPanel>
+
+			
+
 		</StackPanel>
 
-		<Canvas Name="mainCanv" Background="PaleGoldenrod" Margin="15"/>
+		<Canvas Name="mainCanv" Background="PaleGoldenrod" MouseDown="mainCanv_MouseDown" Margin="5">
+		</Canvas>
 
 	</Grid>
 

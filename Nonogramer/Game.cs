@@ -1,19 +1,85 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Nonogramer {
-	public class Game {
-		public Map Map { get; set; }
-		private Canvas canvas;
+	public class Game : INotifyPropertyChanged {
+		public event PropertyChangedEventHandler PropertyChanged;
+		public Map Map { get; private set; }
+		public Rederer Renderer { get; private set; }
+		public Controler Controler { get; private set; }
+		public List<MapData> Maps { get; set; }
 
-		public Game(Canvas canv) {
+		private bool mapSolved;
+		private Canvas canvas;
+		private MainWindow root;
+
+
+		public Game( MainWindow root ) {
+			this.root = root;
+			canvas = root.mainCanv;
+
+			Maps = new List<MapData>();
+			HardCodedStorage.LoadMapsTo( Maps );
+
 			Map = new Map();
-			canvas = canv;
+			Map.Load( Maps[0] );
+
+			Renderer = new Rederer( canvas );
+
+			Controler = new Controler( this );
+			Controler.Move += new NotificationEventHandler( onMove );
+		}
+
+		public void InitializeScreen() {
+			Renderer.LoadMapData( Map.Data );
+			ResizeScreen();
+			Draw();
+		}
+
+		private void onMove( object sender, EventArgs e ) {
+			if( mapSolved )
+				return;
+			if( Map.CheckAll() )
+				Win();
+			Renderer.Solved = mapSolved;
+		}
+		private void OnPropertyChanged( string propertyName ) {
+			if( PropertyChanged != null )
+				PropertyChanged( this, new PropertyChangedEventArgs( propertyName ) );
+		}
+		private void Win() {
+			mapSolved = true;
+		}
+
+		public void Draw() {
+			Renderer.Draw( Map.Fields );
+		}
+		public void ResizeScreen() {
+			Renderer.Resize();
+		}
+		public void MouseDown( object sender, MouseButtonEventArgs e ) {
+			Canvas canv = (Canvas) sender;
+			Controler.Click( canv, e );
+		}
+		public void LoadMapData( MapData map ) {
+			Map.Load( map );
+			mapSolved = false;
+			Renderer.LoadMapData( map );
+			onMove( this, EventArgs.Empty );
+			OnPropertyChanged( "Map" );
+		}
+		public void ClearScreen() {
+			Map.Clear();
+			Draw();
+			mapSolved = false;
+			onMove( this, EventArgs.Empty );
 		}
 	}
 }
