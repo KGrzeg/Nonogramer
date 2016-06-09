@@ -44,8 +44,6 @@ namespace Nonogramer {
 		}
 
 		private void onMove( object sender, EventArgs e ) {
-			if( mapSolved )
-				return;
 			if( Map.CheckAll() )
 				Win();
 			Renderer.Solved = mapSolved;
@@ -64,8 +62,11 @@ namespace Nonogramer {
 		public void ResizeScreen() {
 			Renderer.Resize();
 		}
-		public void MouseDown( object sender, MouseButtonEventArgs e ) {
-			Canvas canv = (Canvas) sender;
+		public void MouseDown( Canvas sender, MouseButtonEventArgs e ) {
+			if( mapSolved )
+				return;
+
+			Canvas canv =  sender;
 			Controler.Click( canv, e );
 		}
 		public void LoadMapData( MapData map ) {

@@ -40,7 +40,7 @@ namespace Nonogramer {
 		}
 
 		private void mainCanv_MouseDown( object sender, MouseButtonEventArgs e ) {
-			Game.MouseDown( sender, e );
+			Game.MouseDown( (Canvas)sender, e );
 		}
 
 		private void Button_Click( object sender, RoutedEventArgs e ) {

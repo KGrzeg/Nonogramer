@@ -13,12 +13,12 @@ namespace Nonogramer {
 	public delegate void NotificationEventHandler( object sender, EventArgs e );
 
 	public class Controler {
-		
+
 		private Game game;
 
 		public event NotificationEventHandler Move;
 
-		public Controler(Game game) {
+		public Controler( Game game ) {
 			this.game = game;
 		}
 
@@ -39,11 +39,11 @@ namespace Nonogramer {
 				game.Map.SetField( cellPos[0], cellPos[1], Field.Filled );
 			else
 				game.Map.SetField( cellPos[0], cellPos[1], Field.Marked );
-			game.Draw();
 			onChanged( EventArgs.Empty );
+			game.Draw();
 		}
 
-		private void onChanged(EventArgs e ) {
+		private void onChanged( EventArgs e ) {
 			if( Move != null )
 				Move( this, e );
 		}
