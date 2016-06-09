@@ -12,12 +12,36 @@
 			<RowDefinition Height="40"/>
 		</Grid.RowDefinitions>
 
-		<ListBox Name="lbMaps" Grid.Row="0"/>
+		<ListBox Name="lbMaps" Grid.Row="0" MouseDoubleClick="btnLoad_Click"/>
 
-		<StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5" Height="24" HorizontalAlignment="Right">
-			<Button Name="btnClose" Content="Zamknij" Click="btnClose_Click"/>
-			<Button Name="btnLoadFromFile" Content="Wczytaj z pliku" Click="btnLoadFromFile_Click" IsEnabled="False"/>
-			<Button Name="btnLoad" Content="Wczytaj" Click="btnLoad_Click"/>
+		<StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5" Height="24" HorizontalAlignment="Right" >
+			<Button Name="btnClose"
+							Content="Zamknij"
+							Click="btnClose_Click"
+							Margin="3,0">
+				<Button.Background>
+					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+						<GradientStop Color="#FFF3F3F3" Offset="0"/>
+						<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+						<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+						<GradientStop Color="Red" Offset="1"/>
+					</LinearGradientBrush>
+				</Button.Background>
+			</Button>
+			<!--<Button Name="btnLoadFromFile" Content="Wczytaj z pliku" Click="btnLoadFromFile_Click" IsEnabled="False"/>-->
+			<Button Name="btnLoad"
+							Content="Wczytaj"
+							Click="btnLoad_Click"
+							Margin="3,0">
+				<Button.Background>
+					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+						<GradientStop Color="#FFF3F3F3" Offset="0"/>
+						<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+						<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+						<GradientStop Color="#FF15E01F" Offset="1"/>
+					</LinearGradientBrush>
+				</Button.Background>
+			</Button>
 		</StackPanel>
 
 	</Grid>

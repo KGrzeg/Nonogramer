@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
-namespace Nonogramer {
-	public static class HardCodedStorage {
-		public static void LoadMapsTo( List<MapData> Maps ) {
+namespace Nonogramer
+{
+	public static class HardCodedStorage
+	{
+		public static void LoadMapsTo( List<MapData> Maps )
+		{
 			Maps.Add( new MapData {
 				Name = "Default 1 [Czacha]",
 				Author = "Grzesiu",
@@ -33,7 +37,8 @@ namespace Nonogramer {
 					new int[] { 1, 3, 1 },
 					new int[] { 2, 4 },
 					new int[] { 4 }
-				}
+				},
+				Color = Brushes.Gray
 			}.Clone() );
 			Maps.Add( new MapData {
 				Name = "Default 2 [Czołgieł]",
@@ -57,7 +62,8 @@ namespace Nonogramer {
 					new int[] { 4 },
 					new int[] { 2,1 },
 					new int[] { 2 }
-				}
+				},
+				Color = Brushes.Green
 			}.Clone() );
 			Maps.Add( new MapData {
 				Name = "Default 3 [Kaczeł]",
@@ -85,7 +91,8 @@ namespace Nonogramer {
 					new int[] { 1,3 },
 					new int[] { 5 },
 					new int[] { 5 }
-				}
+				},
+				Color = Brushes.Yellow
 			}.Clone() );
 			Maps.Add( new MapData {
 				Name = "Default 4 [Piesełkę]",
@@ -112,7 +119,8 @@ namespace Nonogramer {
 					new int[] { 1,3 },
 					new int[] { 2 },
 					new int[] { 2 }
-				}
+				},
+				Color = Brushes.Brown
 			}.Clone() );
 			Maps.Add( new MapData {
 				Name = "Default 5 [Drzewełkę]",
@@ -148,7 +156,8 @@ namespace Nonogramer {
 					new int[] { 5,7 },
 					new int[] { 4,7 },
 					new int[] { 2,7 }
-				}
+				},
+				Color = Brushes.ForestGreen
 			}.Clone() );
 			Maps.Add( new MapData {
 				Name = "Default 5 [Zegarełkę]",
@@ -173,20 +182,21 @@ namespace Nonogramer {
 				Cols = new int[][]{
 					new int[] { 3 },
 					new int[] { 3,1,3 },
-					new int[] { 1,1,1,1 },
 					new int[] { 1,1 },
+					new int[] { 1,1,1,1 },
 					new int[] { 1,1 },
 					new int[] { 1,1,1 },
 					new int[] { 1,1,1 },
 					new int[] { 2,6,2 },
 					new int[] { 1,1,1 },
-					new int[] { 1,1,1 },
-					new int[] { 1,1,1 },
+					new int[] { 1,1 },
+					new int[] { 1,1 },
 					new int[] { 1,1,1,1 },
 					new int[] { 1,1 },
 					new int[] { 3,1,3 },
 					new int[] { 3 }
-				}
+				},
+				Color = Brushes.Black
 			}.Clone() );
 		}
 	}

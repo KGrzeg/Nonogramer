@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewRenderer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -68,6 +69,7 @@
     <Compile Include="MapChooseWindow.xaml.cs">
       <DependentUpon>MapChooseWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaintRenderer.cs" />
     <Compile Include="Renderer.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Map.cs" />

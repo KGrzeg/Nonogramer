@@ -30,14 +30,14 @@
 					<Label HorizontalContentAlignment="Right" Content="{Binding Path=Game.Map.Data.strSize}"/>
 				</DockPanel>
 			</StackPanel>
-			
+
 			<!-- Interfejs -->
 			<StackPanel Margin="15,5">
 				<Button Content="Czyść" Click="Button_Click"/>
 				<Button Content="Zmień mapę" Click="Button_Click_1"/>
 			</StackPanel>
 
-			
+
 
 		</StackPanel>
 

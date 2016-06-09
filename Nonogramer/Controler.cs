@@ -8,21 +8,25 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 
-namespace Nonogramer {
+namespace Nonogramer
+{
 
 	public delegate void NotificationEventHandler( object sender, EventArgs e );
 
-	public class Controler {
+	public class Controler
+	{
 
 		private Game game;
 
 		public event NotificationEventHandler Move;
 
-		public Controler( Game game ) {
+		public Controler( Game game )
+		{
 			this.game = game;
 		}
 
-		public void Click( Canvas canv, MouseButtonEventArgs e ) {
+		public void Click( Canvas canv, MouseButtonEventArgs e )
+		{
 			if( e.LeftButton != MouseButtonState.Pressed && e.RightButton != MouseButtonState.Pressed )
 				return;
 
@@ -43,7 +47,8 @@ namespace Nonogramer {
 			game.Draw();
 		}
 
-		private void onChanged( EventArgs e ) {
+		private void onChanged( EventArgs e )
+		{
 			if( Move != null )
 				Move( this, e );
 		}
