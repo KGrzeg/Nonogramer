@@ -56,7 +56,7 @@ namespace Nonogramer
 
 		private void Button_Click_1( object sender, RoutedEventArgs e )
 		{
-			using( var dialog = new MapChooseWindow( Game.Maps ) )
+			using( var dialog = new MapChooseWindow( Game.Maps, Game.Solved ) )
 			{
 				dialog.ShowDialog();
 				if( dialog.ChoosedMap != null )

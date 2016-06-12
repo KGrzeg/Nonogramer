@@ -20,20 +20,37 @@ namespace Nonogramer
 
 		public MapData ChoosedMap { get; set; }
 		private List<MapData> maps;
+		private List<string> solved;
 
-		public MapChooseWindow( List<MapData> maps )
+		public MapChooseWindow( List<MapData> maps, List<string> solved )
 		{
 			InitializeComponent();
 			this.maps = maps;
+			this.solved = solved;
 			ChoosedMap = null;
 		}
-
+		private void FillListBox()
+		{
+			for( int i = 0; i < maps.Count; i++ )
+			{
+				string difficulty = "";
+				switch( maps[i].Difficulty )
+				{
+				case Difficulty.Tutorial: difficulty = "Tutorial"; break;
+				case Difficulty.Easy: difficulty = "Easy"; break;
+				case Difficulty.Normal: difficulty = "Normal"; break;
+				case Difficulty.Hard: difficulty = "Hard"; break;
+				case Difficulty.VHard: difficulty = "Very Hard"; break;
+				}
+				if( solved.Contains( maps[i].Name ) )
+					lbMaps.Items.Add( string.Format( "#{0} [{2}] {1} ", ( i + 1 ).ToString(), maps[i].Name, difficulty ) );
+				else
+					lbMaps.Items.Add( string.Format( "#{0} [{1}] ??? ", ( i + 1 ).ToString(), difficulty ) );
+			}
+		}
 		private void Window_Loaded( object sender, RoutedEventArgs e )
 		{
-			for( int i = 1; i <= maps.Count; i++ )
-			{
-				lbMaps.Items.Add( "Image: #" + i.ToString() );
-			}
+			FillListBox();
 		}
 
 		private void btnClose_Click( object sender, RoutedEventArgs e )
@@ -53,15 +70,18 @@ namespace Nonogramer
 				MessageBox.Show( "Please choose a map!", "Incorrect choose." );
 			}
 		}
-
-		private void btnLoadFromFile_Click( object sender, RoutedEventArgs e )
-		{
-			throw new NotImplementedException();
-		}
+		
 
 		public void Dispose()
 		{
 
+		}
+
+		private void btnClose_Reset( object sender, RoutedEventArgs e )
+		{
+			solved.Clear();
+			lbMaps.Items.Clear();
+			FillListBox();
 		}
 	}
 }

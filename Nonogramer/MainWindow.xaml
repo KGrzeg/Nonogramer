@@ -24,6 +24,10 @@
 					<Label>Dimensions:</Label>
 					<Label HorizontalContentAlignment="Right" Content="{Binding Path=Game.Map.Data.strSize}"/>
 				</DockPanel>
+				<DockPanel>
+					<Label>Difficulty:</Label>
+					<Label HorizontalContentAlignment="Right" Content="{Binding Path=Game.Map.Data.Difficulty}"/>
+				</DockPanel>
 			</StackPanel>
 
 			<StackPanel Margin="15,5">

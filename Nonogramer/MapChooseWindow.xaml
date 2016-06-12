@@ -13,8 +13,16 @@
 		</Grid.RowDefinitions>
 
 		<ListBox Name="lbMaps" Grid.Row="0" MouseDoubleClick="btnLoad_Click"/>
-
+		<Button Name="btnReset"
+						Grid.Row="1"
+						Margin="8,5"
+						Height="24"
+						Content="Reset"
+						HorizontalAlignment="Left"
+						Click="btnClose_Reset">
+		</Button>
 		<StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5" Height="24" HorizontalAlignment="Right" >
+
 			<Button Name="btnClose"
 							Content="Close"
 							Click="btnClose_Click"

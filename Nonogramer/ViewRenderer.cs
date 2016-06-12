@@ -11,6 +11,9 @@ namespace Nonogramer
 {
 	public class ViewRenderer : Renderer
 	{
+		/// <summary>
+		/// Percent of view, which is used for margin
+		/// </summary>
 		protected const float marginPercent = 0.05f;
 		protected int viewMarginX, viewMarginY;
 

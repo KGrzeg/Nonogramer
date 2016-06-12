@@ -17,6 +17,7 @@ namespace Nonogramer
 		public Renderer Renderer { get; private set; }
 		public Controler Controler { get; private set; }
 		public List<MapData> Maps { get; set; }
+		public List<string> Solved { get; set; }
 
 		private bool mapSolved;
 		private Canvas canvas;
@@ -30,6 +31,8 @@ namespace Nonogramer
 
 			Maps = new List<MapData>();
 			HardCodedStorage.LoadMapsTo( Maps );
+
+			Solved = new List<string>();
 
 			Map = new Map();
 			Map.Load( Maps[0] );
@@ -59,6 +62,8 @@ namespace Nonogramer
 		private void Win()
 		{
 			mapSolved = true;
+			if( !Solved.Contains( Map.Data.Name ) )
+				Solved.Add( Map.Data.Name );
 			SetRenderer( new ViewRenderer( canvas ) );
 		}
 

@@ -14,6 +14,11 @@ namespace Nonogramer
 	{
 		public static readonly SolidColorBrush Brown = new SolidColorBrush(new Color { A = 255, R = 30, B = 0, G = 0 });
 
+		/// <summary>
+		/// Factor of size of text in map definition
+		/// </summary>
+		private const double cellTextFactor = 0.5;
+
 		public int MarginX { get; set; }
 		public int MarginY { get; set; }
 		public int SizeX { get; set; }
@@ -60,6 +65,11 @@ namespace Nonogramer
 
 			int cellsX = MarginX + SizeX;
 			int cellsY = MarginY + SizeY;
+			
+			if( cellsX == 0 )
+				throw new ArgumentException( "Can't divide by 0!", "cellsX" );
+			if( cellsY == 0 )
+				throw new ArgumentException( "Can't divide by 0!", "cellsY" );
 
 			int cellW = viewWidth / cellsX;
 			int cellH = viewHeight / cellsY;
@@ -146,7 +156,7 @@ namespace Nonogramer
 			label.Foreground = color;
 
 			label.Width = label.Height = CellSize;
-			label.FontSize = label.Height * .5;
+			label.FontSize = label.Height * cellTextFactor;
 
 			return label;
 		}
@@ -180,6 +190,8 @@ namespace Nonogramer
 		}
 		public int[] CellAt( double x, double y )
 		{
+			if( CellSize == 0 )
+				throw new ArgumentException( "Can't divide by 0!", "CellSize" );
 
 			int cX = (int)Math.Floor((decimal)(x / CellSize)) - MarginX;
 			int cY = (int)Math.Floor((decimal)(y / CellSize)) - MarginY;

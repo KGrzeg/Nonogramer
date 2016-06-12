@@ -11,39 +11,74 @@ namespace Nonogramer
 	{
 		public static void LoadMapsTo( List<MapData> Maps )
 		{
-			Maps.Add( new MapData {
-				Name = "Skull",
-				Author = "Grzesiu",
-				Rows = new int[][]{
+			Maps.Add( new MapData(
+				new int[][]{
+					new int[] { 1 },
 					new int[] { 3 },
-					new int[] { 7 },
-					new int[] { 2, 1, 2 },
-					new int[] { 1, 1, 1, 1, 1 },
-					new int[] { 9 },
-					new int[] { 3, 1, 3 },
-					new int[] { 1, 3, 1 },
-					new int[] { 1, 1 },
-					new int[] { 1, 5 },
-					new int[] { 2 }
+					new int[] { 5 },
+					new int[] { 2,2 },
+					new int[] { 2,2 }
 				},
-				Cols = new int[][]{
-					new int[] { 2 },
-					new int[] { 4, 1 },
-					new int[] { 2, 4 },
-					new int[] { 1, 3, 1 },
-					new int[] { 2, 1, 1, 1 },
-					new int[] { 7, 1  },
-					new int[] { 2, 1, 1, 1 },
-					new int[] { 1, 3, 1 },
-					new int[] { 2, 4 },
+				new int[][]{
+					new int[] { 3 },
+					new int[] { 4 },
+					new int[] { 3 },
+					new int[] { 4 },
+					new int[] { 3 }
+				},
+				"House",
+				"Grzesiu",
+				Brushes.Black,
+				Difficulty.Tutorial
+			) );
+			Maps.Add( new MapData(
+				new int[][]{
+					new int[] { 5 },
+					new int[] { 5 },
+					new int[] { 5 },
+					new int[] { 5 },
+					new int[] { 3 },
+					new int[] { 1 }
+				},
+				new int[][]{
+					new int[] { 4 },
+					new int[] { 5 },
+					new int[] { 6 },
+					new int[] { 5 },
 					new int[] { 4 }
 				},
-				Color = Brushes.Gray
-			}.Clone() );
-			Maps.Add( new MapData {
-				Name = "Tank",
-				Author = "Grzesiu",
-				Rows = new int[][]{
+				"Shield",
+				"Grzesiu",
+				Brushes.Gray,
+				Difficulty.Tutorial
+			) );
+			Maps.Add( new MapData(
+				new int[][]{
+					new int[] { 2 },
+					new int[] { 2 },
+					new int[] { 6 },
+					new int[] { 6 },
+					new int[] { 2 },
+					new int[] { 2 },
+					new int[] { 2 },
+					new int[] { 2 },
+					new int[] { 2 }
+				},
+				new int[][]{
+					new int[] { 2 },
+					new int[] { 2 },
+					new int[] { 9 },
+					new int[] { 9 },
+					new int[] { 2 },
+					new int[] { 2 }
+				},
+				"Cross",
+				"Grzesiu",
+				Renderer.Brown,
+				Difficulty.Tutorial
+			) );
+			Maps.Add( new MapData(
+				new int[][]{
 					new int[] { 1 },
 					new int[] { 8 },
 					new int[] { 5 },
@@ -51,7 +86,7 @@ namespace Nonogramer
 					new int[] { 1, 2, 2, 1 },
 					new int[] { 1, 1, 1 }
 				},
-				Cols = new int[][]{
+				new int[][]{
 					new int[] { 1, 1 },
 					new int[] { 1, 2 },
 					new int[] { 1, 1, 1 },
@@ -63,12 +98,42 @@ namespace Nonogramer
 					new int[] { 2,1 },
 					new int[] { 2 }
 				},
-				Color = Brushes.Green
-			}.Clone() );
-			Maps.Add( new MapData {
-				Name = "Duck",
-				Author = "Grzesiu",
-				Rows = new int[][]{
+				"Tank",
+				"Grzesiu",
+				Brushes.Green,
+				Difficulty.Normal ) );
+			Maps.Add( new MapData(
+				new int[][]{
+					new int[] { 3 },
+					new int[] { 7 },
+					new int[] { 2, 1, 2 },
+					new int[] { 1, 1, 1, 1, 1 },
+					new int[] { 9 },
+					new int[] { 3, 1, 3 },
+					new int[] { 1, 3, 1 },
+					new int[] { 1, 1 },
+					new int[] { 1, 5 },
+					new int[] { 2 }
+				},
+				new int[][]{
+					new int[] { 2 },
+					new int[] { 4, 1 },
+					new int[] { 2, 4 },
+					new int[] { 1, 3, 1 },
+					new int[] { 2, 1, 1, 1 },
+					new int[] { 7, 1  },
+					new int[] { 2, 1, 1, 1 },
+					new int[] { 1, 3, 1 },
+					new int[] { 2, 4 },
+					new int[] { 4 }
+				},
+				"Skull",
+				"Grzesiu",
+				Brushes.Gray,
+				Difficulty.Normal
+			) );
+			Maps.Add( new MapData(
+				new int[][]{
 				new int[] { 4 },
 				new int[] { 1,2 },
 				new int[] { 5 },
@@ -80,7 +145,7 @@ namespace Nonogramer
 				new int[] { 4,3 },
 				new int[] { 7 }
 			},
-				Cols = new int[][]{
+				new int[][]{
 					new int[] { 1,3 },
 					new int[] { 3,6 },
 					new int[] { 1,8 },
@@ -92,40 +157,51 @@ namespace Nonogramer
 					new int[] { 5 },
 					new int[] { 5 }
 				},
-				Color = Brushes.Yellow
-			}.Clone() );
-			Maps.Add( new MapData {
-				Name = "Dog",
-				Author = "Dagmarcia",
-				Rows = new int[][]{
-					new int[] { 2,2 },
-					new int[] { 2,2 },
-					new int[] { 1,1,1,1 },
+				"Duck",
+				"Grzesiu",
+				Brushes.Yellow,
+				Difficulty.Normal ) );
+			Maps.Add( new MapData(
+				new int[][]{
 					new int[] { 1,1 },
-					new int[] { 4 },
-					new int[] { 1,1 },
-					new int[] { 1,2,1 },
-					new int[] { 1,1 },
-					new int[] { 4 }
+					new int[] { 9 },
+					new int[] { 13 },
+					new int[] { 4,1,1,2 },
+					new int[] { 2,1,1,3 },
+					new int[] { 2,1,1,2 },
+					new int[] { 4,1,1 },
+					new int[] { 10 },
+					new int[] { 10 },
+					new int[] { 1,1,3 },
+					new int[] { 2,1,1,2 },
+					new int[] { 3,1,1,3 },
+					new int[] { 13 },
+					new int[] { 10 },
+					new int[] { 1,1 }
 				},
-				Cols = new int[][]{
-					new int[] { 2 },
-					new int[] { 2 },
-					new int[] { 1,3 },
-					new int[] { 3,1 },
-					new int[] { 1,1,1 },
-					new int[] { 1,1,1 },
-					new int[] { 3,1 },
-					new int[] { 1,3 },
-					new int[] { 2 },
-					new int[] { 2 }
+				new int[][]{
+					new int[] { 4,2 },
+					new int[] { 5,3 },
+					new int[] { 2,2,3 },
+					new int[] { 3,2,2 },
+					new int[] { 2,2,2 },
+					new int[] { 2,2,2 },
+					new int[] { 15 },
+					new int[] { 2,2,2 },
+					new int[] { 2,2,2 },
+					new int[] { 15 },
+					new int[] { 2,2,2 },
+					new int[] { 2,2,2 },
+					new int[] { 1,2,2,2 },
+					new int[] { 4,5 },
+					new int[] { 2,3 }
 				},
-				Color = Brushes.Brown
-			}.Clone() );
-			Maps.Add( new MapData {
-				Name = "Roots",
-				Author = "Grzesiu",
-				Rows = new int[][]{
+				"Dollar",
+				"Rafafał",
+				Brushes.ForestGreen,
+				Difficulty.Normal ) );
+			Maps.Add( new MapData(
+				new int[][]{
 					new int[] { 2 },
 					new int[] { 4 },
 					new int[] { 1,4,1 },
@@ -143,7 +219,7 @@ namespace Nonogramer
 					new int[] { 1,1,1,2,3 },
 					new int[] { 1,1,2,1,3 }
 				},
-				Cols = new int[][]{
+				new int[][]{
 					new int[] { 2,7 },
 					new int[] { 4,5 },
 					new int[] { 5,4,2 },
@@ -157,53 +233,40 @@ namespace Nonogramer
 					new int[] { 4,7 },
 					new int[] { 2,7 }
 				},
-				Color = Brushes.ForestGreen
-			}.Clone() );
-			Maps.Add( new MapData {
-				Name = "Clock",
-
-				Author = "Grzesiu",
-				Rows = new int[][]{
-					new int[] { 3 },
-					new int[] { 3,1,3 },
-					new int[] { 1,1 },
-					new int[] { 1,1,1,1,1 },
-					new int[] { 1,1,1 },
-					new int[] { 1,1,1 },
-					new int[] { 1,1,1 },
-					new int[] { 2,4,2 },
-					new int[] { 1,1,1 },
-					new int[] { 1,1 },
-					new int[] { 1,1 },
+				"Roots",
+				"Grzesiu",
+				Brushes.ForestGreen,
+				Difficulty.Normal ) );
+			Maps.Add( new MapData(
+				new int[][]{
+					new int[] { 2,2 },
+					new int[] { 2,2 },
 					new int[] { 1,1,1,1 },
 					new int[] { 1,1 },
-					new int[] { 3,1,3 },
-					new int[] { 3 }
+					new int[] { 4 },
+					new int[] { 1,1 },
+					new int[] { 1,2,1 },
+					new int[] { 1,1 },
+					new int[] { 4 }
 				},
-				Cols = new int[][]{
-					new int[] { 3 },
-					new int[] { 3,1,3 },
-					new int[] { 1,1 },
-					new int[] { 1,1,1,1 },
-					new int[] { 1,1 },
+				new int[][]{
+					new int[] { 2 },
+					new int[] { 2 },
+					new int[] { 1,3 },
+					new int[] { 3,1 },
 					new int[] { 1,1,1 },
 					new int[] { 1,1,1 },
-					new int[] { 2,6,2 },
-					new int[] { 1,1,1 },
-					new int[] { 1,1 },
-					new int[] { 1,1 },
-					new int[] { 1,1,1,1 },
-					new int[] { 1,1 },
-					new int[] { 3,1,3 },
-					new int[] { 3 }
+					new int[] { 3,1 },
+					new int[] { 1,3 },
+					new int[] { 2 },
+					new int[] { 2 }
 				},
-				Color = Brushes.Black
-			}.Clone() );
-			Maps.Add( new MapData {
-				Name = "Swan",
-
-				Author = "Grzesiu",
-				Rows = new int[][]{
+				"Dog",
+				"Dagmarcia",
+				Brushes.Brown,
+				Difficulty.Hard ) );
+			Maps.Add( new MapData(
+				new int[][]{
 					new int[] { 1,1 },
 					new int[] { 2,2,1 },
 					new int[] { 4,4,2 },
@@ -230,7 +293,7 @@ namespace Nonogramer
 					new int[] { 4,1,7,1,1},
 					new int[] { 5,12}
 				},
-				Cols = new int[][]{
+				new int[][]{
 					new int[] { 9,9 },
 					new int[] { 1,10,9},
 					new int[] { 13,9},
@@ -252,48 +315,90 @@ namespace Nonogramer
 					new int[] { 10,7,1},
 					new int[] { 12,2,6}
 				},
-				Color = Brushes.White
-			}.Clone() );
-			Maps.Add( new MapData {
-				Name = "Dollar",
-
-				Author = "Rafafał",
-				Rows = new int[][]{
+				"Swan",
+				"Grzesiu",
+				Brushes.Gray,
+				Difficulty.Hard ) );
+			Maps.Add( new MapData(
+				new int[][]{
+					new int[] { 1 },
+					new int[] { 1 },
+					new int[] { 1,2 },
 					new int[] { 1,1 },
-					new int[] { 9 },
-					new int[] { 13 },
-					new int[] { 4,1,1,2 },
-					new int[] { 2,1,1,3 },
-					new int[] { 2,1,1,2 },
-					new int[] { 4,1,1 },
-					new int[] { 10 },
-					new int[] { 10 },
-					new int[] { 1,1,3 },
-					new int[] { 2,1,1,2 },
-					new int[] { 3,1,1,3 },
-					new int[] { 13 },
-					new int[] { 10 },
+					new int[] { 1,7 },
+					new int[] { 11,8 },
+					new int[] { 10,7 },
+					new int[] { 11,8 },
+					new int[] { 1,7,3,2 },
+					new int[] { 1,1,6,4,1,2 },
+					new int[] { 3,3 },
 					new int[] { 1,1 }
 				},
-				Cols = new int[][]{
-					new int[] { 4,2 },
-					new int[] { 5,3 },
-					new int[] { 2,2,3 },
-					new int[] { 3,2,2 },
-					new int[] { 2,2,2 },
-					new int[] { 2,2,2 },
-					new int[] { 15 },
-					new int[] { 2,2,2 },
-					new int[] { 2,2,2 },
-					new int[] { 15 },
-					new int[] { 2,2,2 },
-					new int[] { 2,2,2 },
-					new int[] { 1,2,2,2 },
-					new int[] { 4,5 },
+				new int[][]{
+					new int[] { 1,3 },
+					new int[] { 3,1 },
+					new int[] { 3,3 },
+					new int[] { 3,1 },
+					new int[] { 5 },
+					new int[] { 7 },
+					new int[] { 2,5 },
+					new int[] { 1,5 },
+					new int[] { 5 },
+					new int[] { 5 },
+					new int[] { 4 },
+					new int[] { 1 },
+					new int[] { 5 },
+					new int[] { 6 },
+					new int[] { 6 },
+					new int[] { 5,1 },
+					new int[] { 1,4,3 },
+					new int[] { 1,4,1 },
+					new int[] { 6 },
 					new int[] { 2,3 }
 				},
-				Color = Brushes.ForestGreen
-			}.Clone() );
+				"Jeep",
+				"Grzesiu",
+				Brushes.ForestGreen,
+				Difficulty.Hard ) );
+			Maps.Add( new MapData(
+				new int[][]{
+					new int[] { 3 },
+					new int[] { 3,1,3 },
+					new int[] { 1,1 },
+					new int[] { 1,1,1,1,1 },
+					new int[] { 1,1,1 },
+					new int[] { 1,1,1 },
+					new int[] { 1,1,1 },
+					new int[] { 2,4,2 },
+					new int[] { 1,1,1 },
+					new int[] { 1,1 },
+					new int[] { 1,1 },
+					new int[] { 1,1,1,1 },
+					new int[] { 1,1 },
+					new int[] { 3,1,3 },
+					new int[] { 3 }
+				},
+				new int[][]{
+					new int[] { 3 },
+					new int[] { 3,1,3 },
+					new int[] { 1,1 },
+					new int[] { 1,1,1,1 },
+					new int[] { 1,1 },
+					new int[] { 1,1,1 },
+					new int[] { 1,1,1 },
+					new int[] { 2,6,2 },
+					new int[] { 1,1,1 },
+					new int[] { 1,1 },
+					new int[] { 1,1 },
+					new int[] { 1,1,1,1 },
+					new int[] { 1,1 },
+					new int[] { 3,1,3 },
+					new int[] { 3 }
+				},
+				"Clock",
+				"Grzesiu",
+				Brushes.Black,
+				Difficulty.VHard ) );
 		}
 	}
 }
