@@ -65,6 +65,14 @@ namespace Nonogramer
 			if( !Solved.Contains( Map.Data.Name ) )
 				Solved.Add( Map.Data.Name );
 			SetRenderer( new ViewRenderer( canvas ) );
+
+			if( Map.Data.Name == "Jarofir" )
+			{
+				var special = new Special();
+				special.ShowDialog();
+			}
+
+
 		}
 
 		public void Draw()

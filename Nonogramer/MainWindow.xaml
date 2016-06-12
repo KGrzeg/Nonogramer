@@ -34,9 +34,11 @@
 				<Button Content="Clear" Click="Button_Click"/>
 				<Button Content="Change Map" Click="Button_Click_1"/>
 			</StackPanel>
+
 		</StackPanel>
 
-		<StackPanel Grid.Column="1" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+		<StackPanel Grid.Column="1" Margin="57,0,5,5" VerticalAlignment="Bottom">
+
 			<TextBlock HorizontalAlignment="Right">
 				<Hyperlink
 					NavigateUri="https://en.wikipedia.org/wiki/Nonogram"
@@ -45,6 +47,11 @@
 			</TextBlock>
 			<Label Content="Autor: Grzegorz Kupczyk"/>
 			<Label Content="hagisek1998@gmail.com"/>
+			<TextBlock Foreground="Red">
+				The last image is a special
+				<LineBreak />
+				for the best lecturer.
+			</TextBlock>
 		</StackPanel>
 
 
