@@ -12,6 +12,8 @@ namespace Nonogramer
 {
 	public class Renderer
 	{
+		public static readonly SolidColorBrush Brown = new SolidColorBrush(new Color { A = 255, R = 30, B = 0, G = 0 });
+
 		public int MarginX { get; set; }
 		public int MarginY { get; set; }
 		public int SizeX { get; set; }
@@ -115,29 +117,60 @@ namespace Nonogramer
 			rect.StrokeThickness = 0;
 			rect.Fill = brush;
 
-			Canvas.SetLeft( rect, x + CellSize * ( ( 1 - fill ) / 2 ) );
-			Canvas.SetTop( rect, y + CellSize * ( ( 1 - fill ) / 2 ) );
+			SetUIElementPosition(
+				rect,
+				x + CellSize * ( ( 1 - fill ) / 2 ),
+				y + CellSize * ( ( 1 - fill ) / 2 )
+			);
 
 			return rect;
 		}
 
-		protected void PrintText( double x, double y, string text, Canvas canv )
+		protected Label Text( string text )
 		{
 			var label = new Label();
 
 			label.Content = text;
-			label.Foreground = Brushes.Brown;
-
-			label.Width = label.Height = CellSize;
 			label.HorizontalContentAlignment = HorizontalAlignment.Center;
 			label.VerticalContentAlignment = VerticalAlignment.Center;
+
+			return label;
+		}
+
+		protected Label TextCell( string text, SolidColorBrush color = null )
+		{
+			if( color == null )
+				color = Brown;
+			var label = Text(text);
+
+			label.Foreground = color;
+
+			label.Width = label.Height = CellSize;
 			label.FontSize = label.Height * .5;
 
-			Canvas.SetLeft( label, x );
-			Canvas.SetTop( label, y );
+			return label;
+		}
+		protected void PrintText( double x, double y, string text, SolidColorBrush color, Canvas canv )
+		{
+			Label label = TextCell(text, color);
+			SetUIElementPosition( label, x, y );
 
 			canv.Children.Add( label );
 		}
+		protected void PrintText( double x, double y, string text, Canvas canv )
+		{
+			Label label = TextCell(text);
+			SetUIElementPosition( label, x, y );
+
+			canv.Children.Add( label );
+		}
+
+		protected void SetUIElementPosition( UIElement element, double x, double y )
+		{
+			Canvas.SetLeft( element, x );
+			Canvas.SetTop( element, y );
+		}
+
 
 		public int[] CellPos( int cellX, int cellY )
 		{

@@ -42,6 +42,7 @@ namespace Nonogramer
 		{
 			base.Draw( fields );
 			drawMapFields( fields );
+			drawMapName();
 		}
 
 		private void drawMapFields( Field[,] fields )
@@ -68,6 +69,16 @@ namespace Nonogramer
 					canvas.Children.Add( drawRect );
 				}
 			}
+		}
+		private void drawMapName()
+		{
+			Label text = Text(mapData.Name);
+
+			SetUIElementPosition( text, 0, viewMarginY + SizeY * CellSize );
+
+			text.Width = viewMarginX * 2 + SizeX * CellSize;
+			text.FontSize = viewMarginY * 0.7;
+			canvas.Children.Add( text );
 		}
 		protected new int[] CellPos( int cellX, int cellY )
 		{

@@ -30,9 +30,9 @@ namespace Nonogramer
 
 		private void Window_Loaded( object sender, RoutedEventArgs e )
 		{
-			foreach( MapData map in maps )
+			for( int i = 1; i <= maps.Count; i++ )
 			{
-				lbMaps.Items.Add( map.Name );
+				lbMaps.Items.Add( "Image: #" + i.ToString() );
 			}
 		}
 
@@ -45,12 +45,12 @@ namespace Nonogramer
 		{
 			if( lbMaps.SelectedItem != null )
 			{
-				ChoosedMap = maps.First( m => m.Name == (string) lbMaps.SelectedItem ).Clone();
+				ChoosedMap = maps[lbMaps.SelectedIndex].Clone();
 				this.Close();
 			}
 			else
 			{
-				MessageBox.Show( "Musisz wybrać obraz do załadowania!", "nie wybrano mapy" );
+				MessageBox.Show( "Please choose a map!", "Incorrect choose." );
 			}
 		}
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nonogramer"
         mc:Ignorable="d"
-        Title="Wybór mapy" Height="300" Width="300" Loaded="Window_Loaded">
+        Title="Select Map" Height="300" Width="300" Loaded="Window_Loaded">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="*"/>
@@ -16,31 +16,14 @@
 
 		<StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5" Height="24" HorizontalAlignment="Right" >
 			<Button Name="btnClose"
-							Content="Zamknij"
+							Content="Close"
 							Click="btnClose_Click"
 							Margin="3,0">
-				<Button.Background>
-					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-						<GradientStop Color="#FFF3F3F3" Offset="0"/>
-						<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
-						<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-						<GradientStop Color="Red" Offset="1"/>
-					</LinearGradientBrush>
-				</Button.Background>
 			</Button>
-			<!--<Button Name="btnLoadFromFile" Content="Wczytaj z pliku" Click="btnLoadFromFile_Click" IsEnabled="False"/>-->
 			<Button Name="btnLoad"
-							Content="Wczytaj"
+							Content="Load"
 							Click="btnLoad_Click"
 							Margin="3,0">
-				<Button.Background>
-					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-						<GradientStop Color="#FFF3F3F3" Offset="0"/>
-						<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
-						<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-						<GradientStop Color="#FF15E01F" Offset="1"/>
-					</LinearGradientBrush>
-				</Button.Background>
 			</Button>
 		</StackPanel>
 

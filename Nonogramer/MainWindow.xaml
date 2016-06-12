@@ -9,37 +9,40 @@
 				SizeChanged="windows_sizeChanged" MinHeight="350" MinWidth="485">
 	<Grid>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="7*"/>
+			<ColumnDefinition Width="12*"/>
 			<ColumnDefinition Width="3*"/>
 		</Grid.ColumnDefinitions>
 
 		<StackPanel Grid.Column="1" Margin="5">
-
-			<!-- Info o planszy -->
 			<StackPanel Background="#4CCEE251">
+				<Label Content="Map info:" HorizontalAlignment="Center" />
 				<DockPanel>
-					<Label>Nazwa mapy:</Label>
-					<Label HorizontalContentAlignment="Right" Content="{Binding Path=Game.Map.Data.Name}"/>
-				</DockPanel>
-				<DockPanel>
-					<Label>Autor mapy:</Label>
+					<Label>Author:</Label>
 					<Label HorizontalContentAlignment="Right" Content="{Binding Path=Game.Map.Data.Author}"/>
 				</DockPanel>
 				<DockPanel>
-					<Label>Wymiary mapy:</Label>
+					<Label>Dimensions:</Label>
 					<Label HorizontalContentAlignment="Right" Content="{Binding Path=Game.Map.Data.strSize}"/>
 				</DockPanel>
 			</StackPanel>
 
-			<!-- Interfejs -->
 			<StackPanel Margin="15,5">
-				<Button Content="Czyść" Click="Button_Click"/>
-				<Button Content="Zmień mapę" Click="Button_Click_1"/>
+				<Button Content="Clear" Click="Button_Click"/>
+				<Button Content="Change Map" Click="Button_Click_1"/>
 			</StackPanel>
-
-
-
 		</StackPanel>
+
+		<StackPanel Grid.Column="1" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+			<TextBlock HorizontalAlignment="Right">
+				<Hyperlink
+					NavigateUri="https://en.wikipedia.org/wiki/Nonogram"
+					RequestNavigate="Hyperlink_RequestNavigate"
+					>What is a nonogram?</Hyperlink>
+			</TextBlock>
+			<Label Content="Autor: Grzegorz Kupczyk"/>
+			<Label Content="hagisek1998@gmail.com"/>
+		</StackPanel>
+
 
 		<Canvas Name="mainCanv" Background="PaleGoldenrod" MouseDown="mainCanv_MouseDown" Margin="5">
 		</Canvas>
